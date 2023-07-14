@@ -6,7 +6,7 @@ let i = 1;
 
 (async () => {
     try {
-        const conn = await amqplib.connect('amqps://rpkbuktb:FWkmvgnB74fBs8LCkf2lHPoe_SgG2cmZ@albatross.rmq.cloudamqp.com/rpkbuktb');
+        const conn = await amqplib.connect(<string>process.env.AMQPURL);
 
         chan = await conn.createChannel();
         await chan.assertQueue(QUEUE, { durable: true });
